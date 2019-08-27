@@ -80,7 +80,7 @@ startGame();
 }
 
 function startGame() {
-    myGamePiece = new component(100, 30, "#fff", 600, 850);
+    myGamePiece = new component(100, 30, "#fff", 600, 600);
     score = new component("30px", "Consolas", "#fff", 1000, 40, "text");
     myGameArea.start();
 }
@@ -137,11 +137,6 @@ this.type = type;
     this.y += this.speedY;
     this.hitSide();
     }
-    this.newPosGrav = function() {
-        this.gravitySpeed += this.gravity;
-            this.x += this.speedX;
-            this.y += this.speedY + this.gravitySpeed;
-    }
     this.crashWith = function(otherobj) {
         var myleft = this.x;
         var myright = this.x + (this.width);
@@ -182,11 +177,11 @@ function updateGameArea() {
     }
     myGameArea.clear();
     myGameArea.frameNo += 1;
-    if (myGameArea.frameNo == 1 || everyinterval(20)) {
+    if (myGameArea.frameNo == 1 || everyinterval(40)) {
         harang.push(new component(100, 30, "#fff", Math.random()*1000+1, -70));
     }
     for (i = 0; i < harang.length; i ++) {
-        harang[i].y += Math.random()*15+1;
+        harang[i].y += Math.random()*10+1;
         harang[i].update();
     }
     score.text = "SCORE: " + myGameArea.frameNo;
