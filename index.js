@@ -37,8 +37,9 @@ var screenSizeHeight = screen.height;
 }
 
 function startGame() {
+    document.getElementById("forkLink").style.display = "none";
     mainPlayer = new component(playerWidth, playerHeight, "#fff", playerPosX, playerPosY);
-    score = new component("2em", "Arial", "#fff", screenSizeWidth/50, screenSizeHeight/20, "text");
+    score = new component("2em", "Audiowide, Arial", "#fff", screenSizeWidth/50, screenSizeHeight/20, "text");
     myGameArea.start();
 }
 
@@ -236,4 +237,32 @@ else{
 }
 
 document.getElementById("game-over").style.display="block";
+}
+
+function mainMenu() {
+    document.getElementById("game-over").style.display = "none";
+    myGameArea.stop();
+myGameArea.clear();
+harang = [];
+
+
+var element = document.getElementsByTagName("canvas"), index;
+
+for (index = element.length - 1; index >= 0; index--) {
+    element[index].parentNode.removeChild(element[index]);
+}
+
+document.getElementById("forkLink").style.display = "block";
+document.getElementById("main-menu").style.display = "block";
+
+}
+
+function howToPlay() {
+    document.getElementById("how-to-play").style.display = "block";
+    document.getElementById("buttonsContainer").style.display = "none";
+}
+
+function backToMenu() {
+    document.getElementById("how-to-play").style.display = "none";
+    document.getElementById("buttonsContainer").style.display = "block";
 }
