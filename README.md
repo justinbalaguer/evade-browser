@@ -1,4 +1,4 @@
 # evade-browser
 
 # Demo
-https://justinbalaguer.com/apps/evade-browser/
+https://justinbalaguer.github.io/evade-browser/
